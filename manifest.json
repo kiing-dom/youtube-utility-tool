@@ -14,9 +14,9 @@
     },
     "action": {
       "default_icon": {
-        "16": "./icons/youtility-icon-16.jpg",
-        "48": "./icons/youtility-icon-48.jpg",
-        "128": "./icons/youtility-icon-128.jpg"
+        "16": "/icons/youtility-icon-16.jpg",
+        "48": "/icons/youtility-icon-48.jpg",
+        "128": "/icons/youtility-icon-128.jpg"
       }
     },
     "content_scripts": [

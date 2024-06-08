@@ -2,7 +2,7 @@
 
 // Inject the Material Icons Stylesheet
 const link = document.createElement('link');
-link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons'
+link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
 link.rel = 'stylesheet';
 document.head.appendChild(link);
 
@@ -28,32 +28,37 @@ function injectButtons() {
     // First check if the buttons are added already
     if (document.getElementById('youtube-clipper-buttons')) return;
 
+    // Find the container element for the volume and full-screen buttons
+    const playerControls = document.querySelector('.ytp-right-controls');
+    if (!playerControls) {
+        console.error('Failed to find the YouTube video player controls container');
+        return;
+    }
+
     const container = document.createElement('div');
     container.id = 'youtube-clipper-buttons';
-    container.style.position = 'absolute';
-    container.style.top = '10px';
-    container.style.right = '10px';
-    container.style.zIndex = '1000';
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
+    container.style.marginTop = '4px'; // Adjust margin as needed for positioning
 
     // Create the screenshot button
     const screenshotButton = document.createElement('button');
     screenshotButton.id = 'screenshotButton';
     screenshotButton.innerHTML = '<span class="material-icons">camera_alt</span>';
-    screenshotButton.style.marginBottom = '10px';
+    screenshotButton.style.marginBottom = '4px'; // Adjust margin as needed for positioning
 
     // Create the clip button
     const clipButton = document.createElement('button');
     clipButton.id = 'openModalButton';
     clipButton.innerHTML = '<span class="material-icons">video_call</span>';
+    clipButton.style.marginBottom = '4px'; // Adjust margin as needed for positioning
 
     // Append the buttons to the container
     container.appendChild(screenshotButton);
     container.appendChild(clipButton);
 
-    // Append the container to the body;
-    document.body.appendChild(container);
+    // Append the container to the player controls
+    playerControls.appendChild(container);
 
     // Add event listeners to the buttons
     screenshotButton.addEventListener('click', takeScreenshot);

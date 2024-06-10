@@ -3,7 +3,11 @@
   "name": "YouTility",
   "version": "1.0",
   "description": "YouTube Utility (YouTility) Tool, to enhance your experience on the site.",
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default-icon": {
@@ -20,7 +24,15 @@
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "css": ["toolbar.css"]
+
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["toolbar.html", "images/*"],
+      "matches": ["https://www.youtube.com/*"]
     }
   ]
 }

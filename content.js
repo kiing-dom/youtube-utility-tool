@@ -1,3 +1,6 @@
+let audioContext;
+let gainNode;
+
 // Inject the toolbar HTML into the page
 function injectToolbar() {
   fetch(chrome.runtime.getURL('toolbar.html'))
@@ -19,7 +22,8 @@ function injectToolbar() {
 // Add event listeners to the toolbar buttons
 function addToolbarListeners() {
   document.getElementById('screenshot-btn').addEventListener('click', captureScreenshot);
-  // Add more event listeners for other buttons here
+  document.getElementById('volume-boost-btn').addEventListener('click', toggleVolumeSlider);
+  document.getElementById('volume-boost-slider').addEventListener('input', adjustVolumeBoost);
 }
 
 // Toggle the visibility of the toolbar
@@ -28,6 +32,37 @@ function toggleToolbar() {
   if (toolbar) {
     toolbar.classList.toggle('hidden');
   }
+}
+
+// Toggle the visibility of the volume boost slider
+function toggleVolumeSlider() {
+  const sliderContainer = document.getElementById('volume-boost-container');
+  if (sliderContainer) {
+    sliderContainer.classList.toggle('hidden');
+  }
+}
+
+// Adjust the video volume based on the slider value
+function adjustVolumeBoost() {
+  const slider = document.getElementById('volume-boost-slider');
+  const video = document.querySelector('video');
+  if (slider && video) {
+    if (!audioContext) {
+      setupAudioContext(video);
+    }
+    const maxBoost = 2.0; // Max boost is 200%
+    const boost = (slider.value - 100) / 100 * maxBoost + 1;
+    gainNode.gain.value = boost;
+  }
+}
+
+// Setup audio context and gain node
+function setupAudioContext(video) {
+  audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const source = audioContext.createMediaElementSource(video);
+  gainNode = audioContext.createGain();
+  source.connect(gainNode);
+  gainNode.connect(audioContext.destination);
 }
 
 // Capture and download the screenshot

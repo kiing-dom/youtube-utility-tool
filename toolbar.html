@@ -1,7 +1,19 @@
 <div id="youtube-enhancer-toolbar" class="hidden">
-    <button id="screenshot-btn" title="Capture Screenshot">
-      <i class="material-icons" style="vertical-align: middle;">camera_alt</i>
+  <div class="toolbar-button-container">
+    <button id="screenshot-btn">
+      <i class="material-icons" style="vertical-align: middle">camera_alt</i>
     </button>
-    <!-- Add more buttons here for other features -->
+    <div class="toolbar-tooltip">Capture Screenshot</div>
   </div>
+
+  <div class="toolbar-button-container">
+    <button id="volume-boost-btn" title="Volume Boost">
+      <i class="material-icons" style="vertical-align: middle">volume_up</i>
+    </button>
+    <div class="toolbar-tooltip">Volume Boost</div>
+  </div>
+  <div class="toolbar-button-container hidden" id="volume-boost-container">
+    <input type="range" id="volume-boost-slider" min="100" max="200" value="100">
   
+  <!-- Add more buttons here for other features -->
+</div>

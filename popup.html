@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
   <title>YouTility</title>
+  <!-- Link to Material Icons stylesheet -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Link to Google Fonts (e.g., Roboto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      width: 200px;
+      width: 300px;
       padding: 20px;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
     button {
-      width: 100%;
       padding: 10px;
       font-size: 16px;
       cursor: pointer;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
     }
   </style>
 </head>
 <body>
-  <h2> YouTility V1</h2>
-  <button id="toggle-toolbar-btn">Toggle Toolbar</button>
+  <h2 class="text-2xl font-bold text-center"> YouTility V1 <i class="material-icons text-gray-500">build</i></h2>
+  <button id="toggle-toolbar-btn" class="bg-red-500 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded w-full">Toggle Toolbar</button>
   <script src="popup.js"></script>
 </body>
 </html>

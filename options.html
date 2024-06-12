@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Import Montserrat font with desired weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Add custom styles here */
+        .tab-content {
+            width: 70%; /* Adjust the width as needed */
+        }
+        h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-semibold {
+            font-weight: 700;
+        }
+        .text-gray-600 {
+            font-weight: 400;
+        }
+        .about-section {
+            width: 28vw;
+            min-width: 300px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
+    <div class="max-w-xl w-full flex">
+        <!-- Navigation Tabs -->
+        <div class="flex flex-col justify-center items-start mr-8">
+            <!-- Settings Tab -->
+            <button id="settings-tab" class="tab-button active flex items-center mb-4">
+                <i class="material-icons mr-2">settings</i>
+                <span>Settings</span>
+            </button>
+            <!-- Information Tab -->
+            <button id="information-tab" class="tab-button flex items-center mb-4">
+                <i class="material-icons mr-2">info</i>
+                <span>Information</span>
+            </button>
+            <!-- Donate Tab -->
+            <button id="donate-tab" class="tab-button flex items-center mb-4">
+                <i class="material-icons mr-2">favorite</i>
+                <span>Donate</span>
+            </button>
+        </div>
+
+        <div class="flex flex-col">
+            <!-- Settings Section -->
+            <div id="settings-section" class="tab-content">
+                <!-- Settings Content -->
+                <h2 class="text-xl font-semibold mb-4">Settings</h2>
+                <div class="bg-white rounded shadow p-6">
+                    <!-- Hotkeys -->
+                    <div class="mb-4 about-section">
+                        <h3 class="font-bold mb-2">About</h3>
+                        <p class="text-gray-600">Coming Soon</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Section -->
+            <div id="information-section" class="tab-content hidden">
+                <!-- Information Content -->
+                <h2 class="text-xl font-semibold mb-4">Information</h2>
+                <div class="bg-white rounded shadow p-6">
+                    <!-- About -->
+                    <div class="mb-4">
+                        <h3 class="font-bold mb-2">About</h3>
+                        <p class="text-gray-600">YouTility is a utility extension that was created to enhance your YouTube experience
+                             by providing a toolbar full of useful functions.</p>
+                    </div>
+                    <!-- How to use -->
+                    <div class="mb-4">
+                        <h3 class="font-bold mb-2">How to Use</h3>
+                        <p class="text-gray-600">
+                            🌟 Click the extension </br>
+                            🌟 Toggle the toolbar </br>
+                            🌟 Enjoy YouTility
+                        </p>
+                    </div>
+                    <!-- Version history -->
+                    <div class="mb-4">
+                        <h3 class="font-bold mb-2">Version History</h3>
+                        <p class="text-gray-600">V1 - Added basic functionality, will be improved in V1.1
+                        </p>
+                    </div>
+                    <!-- FAQ -->
+                    <div>
+                        <h3 class="font-bold mb-2">FAQ</h3>
+                        <p class="text-gray-600">Ask and you will receive.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donate Section -->
+            <div id="donate-section" class="tab-content hidden">
+                <!-- Donation Content -->
+                <h2 class="text-xl font-semibold mb-4">Donate</h2>
+                <div class="bg-white rounded shadow p-6">
+                    <p class="text-gray-600">Support the development of the extension by donating.</p>
+                    <!-- Donation links -->
+                    <div class="mt-4">
+                        <a href="https://www.paypal.com/donate/?hosted_button_id=BRFW2WEZ5X22C" class="text-blue-500 underline">Donate via PayPal</a>
+                        <!-- Add more donation links if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

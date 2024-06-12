@@ -26,7 +26,6 @@
       "matches": ["*://www.youtube.com/*"],
       "js": ["content.js"],
       "css": ["toolbar.css"]
-
     }
   ],
   "web_accessible_resources": [
@@ -34,5 +33,8 @@
       "resources": ["toolbar.html", "images/*"],
       "matches": ["https://www.youtube.com/*"]
     }
-  ]
+  ],
+  "options_ui": {
+    "page": "options.html"
+  }
 }

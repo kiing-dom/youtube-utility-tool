@@ -1,121 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Options</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <!-- Import Montserrat font with desired weights -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <style>
-        /* Add custom styles here */
-        .tab-content {
-            width: 70%; /* Adjust the width as needed */
-        }
-        h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .font-semibold {
-            font-weight: 700;
-        }
-        .text-gray-600 {
-            font-weight: 400;
-        }
-        .about-section {
-            width: 28vw;
-            min-width: 300px;
-        }
+      /* Add custom styles here */
+      p,
+      a,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-semibold {
+        font-weight: 700;
+      }
+      .text-gray-600 {
+        font-weight: 400;
+      }
+      .tab-button {
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        color: #4a5568; /* Tailwind's text-gray-600 color */
+        font-size: 1.125rem; /* Tailwind's text-lg size */
+      }
+      .tab-button i.material-icons {
+        font-size: 24px;
+        margin-right: 8px;
+        transition: color 0.3s;
+      }
+      .tab-button.active,
+      .tab-button:hover {
+        color: #1d4ed8; /* Tailwind's text-blue-700 color */
+      }
+      .tab-button.active i.material-icons,
+      .tab-button:hover i.material-icons {
+        color: #1d4ed8; /* Tailwind's text-blue-700 color */
+      }
+      .tab-content {
+        width: 70%; /* Adjust the width as needed */
+      }
+      .tab-content .bg-white {
+        min-height: 400px; /* Example minimum height */
+      }
+      .tab-content .content-container {
+        min-width: 320px; /* Example minimum width */
+      }
+
+      /* Changelog specific styles */
+      #changelog-section .changelog-container {
+        max-height: 400px; /* Set the maximum height */
+        overflow-y: auto; /* Enable vertical scrolling */
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
+  <body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
     <div class="max-w-xl w-full flex">
-        <!-- Navigation Tabs -->
-        <div class="flex flex-col justify-center items-start mr-8">
-            <!-- Settings Tab -->
-            <button id="settings-tab" class="tab-button active flex items-center mb-4">
-                <i class="material-icons mr-2">settings</i>
-                <span>Settings</span>
-            </button>
-            <!-- Information Tab -->
-            <button id="information-tab" class="tab-button flex items-center mb-4">
-                <i class="material-icons mr-2">info</i>
-                <span>Information</span>
-            </button>
-            <!-- Donate Tab -->
-            <button id="donate-tab" class="tab-button flex items-center mb-4">
-                <i class="material-icons mr-2">favorite</i>
-                <span>Donate</span>
-            </button>
+      <!-- Navigation Tabs -->
+      <div class="flex flex-col justify-center items-start mr-8">
+        <!-- Settings Tab -->
+        <button
+          id="settings-tab"
+          class="tab-button active flex items-center mb-4"
+        >
+          <i class="material-icons mr-2">settings</i>
+          <span>Settings</span>
+        </button>
+        <!-- Information Tab -->
+        <button id="information-tab" class="tab-button flex items-center mb-4">
+          <i class="material-icons mr-2">info</i>
+          <span>Information</span>
+        </button>
+        <!-- Donate Tab -->
+        <button id="donate-tab" class="tab-button flex items-center mb-4 text">
+          <i class="material-icons mr-2">favorite</i>
+          <span>Donate</span>
+        </button>
+        <!-- Changelog Tab -->
+        <button
+          id="changelog-tab"
+          class="tab-button flex items-center mb-4 text"
+        >
+          <i class="material-icons mr-2">update</i>
+          <span>Changelog</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col">
+        <!-- Settings Section -->
+        <div id="settings-section" class="tab-content">
+          <!-- Settings Content -->
+          <h2 class="text-3xl font-bold mb-4">Settings</h2>
+          <!-- Container -->
+          <div class="bg-white content-container shadow p-6">
+            <!-- Hotkeys -->
+            <div class="mb-4">
+              <h2 class="font-semibold text-2xl mb-2">Keyboard Shortcuts</h2>
+            </div>
+            <!-- Edit Shortcuts Button Container -->
+            <div class="flex justify-center mb-4">
+              <!-- Adjust width here -->
+              <button
+                id="edit-shortcuts-btn"
+                class="bg-blue-500 hover:bg-black text-white text-lg font-bold py-2 rounded-lg"
+                style="
+                  width: calc(100% - 1.5rem);
+                  max-width: calc(100% - 1.5rem);
+                "
+              >
+                <!-- Adjusted width -->
+                Edit Shortcuts
+              </button>
+            </div>
+            <!-- Default Commands -->
+            <div>
+              <h3 class="font-semibold text-2xl mb-2">Default Commands</h3>
+              <ul id="default-commands-list" class="list-disc pl-8 text-sm">
+                <!-- List items will be added dynamically -->
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="flex flex-col">
-            <!-- Settings Section -->
-            <div id="settings-section" class="tab-content">
-                <!-- Settings Content -->
-                <h2 class="text-xl font-semibold mb-4">Settings</h2>
-                <div class="bg-white rounded shadow p-6">
-                    <!-- Hotkeys -->
-                    <div class="mb-4 about-section">
-                        <h3 class="font-bold mb-2">About</h3>
-                        <p class="text-gray-600">Coming Soon</p>
-                    </div>
-                </div>
-            </div>
+      <!-- Information Section -->
+      <div id="information-section" class="tab-content hidden">
+        <!-- Information Content -->
+        <h2 class="text-3xl font-bold mb-4">Information</h2>
+        <div class="bg-white rounded shadow p-6">
+          <!-- About -->
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">About</h3>
+            <p class="text-sm">
+              YouTility is a utility extension that enhances your YouTube
+              experience.
+            </p>
+          </div>
+          <!-- How to use -->
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">How to Use</h3>
+            <p class="text-sm">
+              🌟 Toggle the toolbar <br />
+              🌟 Enjoy YouTility
+            </p>
+          </div>
 
-            <!-- Information Section -->
-            <div id="information-section" class="tab-content hidden">
-                <!-- Information Content -->
-                <h2 class="text-xl font-semibold mb-4">Information</h2>
-                <div class="bg-white rounded shadow p-6">
-                    <!-- About -->
-                    <div class="mb-4">
-                        <h3 class="font-bold mb-2">About</h3>
-                        <p class="text-gray-600">YouTility is a utility extension that was created to enhance your YouTube experience
-                             by providing a toolbar full of useful functions.</p>
-                    </div>
-                    <!-- How to use -->
-                    <div class="mb-4">
-                        <h3 class="font-bold mb-2">How to Use</h3>
-                        <p class="text-gray-600">
-                            🌟 Click the extension </br>
-                            🌟 Toggle the toolbar </br>
-                            🌟 Enjoy YouTility
-                        </p>
-                    </div>
-                    <!-- Version history -->
-                    <div class="mb-4">
-                        <h3 class="font-bold mb-2">Version History</h3>
-                        <p class="text-gray-600">V1 - Added basic functionality, will be improved in V1.1
-                        </p>
-                    </div>
-                    <!-- FAQ -->
-                    <div>
-                        <h3 class="font-bold mb-2">FAQ</h3>
-                        <p class="text-gray-600">Ask and you will receive.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Donate Section -->
-            <div id="donate-section" class="tab-content hidden">
-                <!-- Donation Content -->
-                <h2 class="text-xl font-semibold mb-4">Donate</h2>
-                <div class="bg-white rounded shadow p-6">
-                    <p class="text-gray-600">Support the development of the extension by donating.</p>
-                    <!-- Donation links -->
-                    <div class="mt-4">
-                        <a href="https://www.paypal.com/donate/?hosted_button_id=BRFW2WEZ5X22C" class="text-blue-500 underline">Donate via PayPal</a>
-                        <!-- Add more donation links if needed -->
-                    </div>
-                </div>
-            </div>
+          <!-- FAQ -->
+          <div>
+            <h3 class="font-semibold text-2xl mb-2">FAQ</h3>
+            <p class="text-sm">Ask and you shall receive.</p>
+          </div>
         </div>
+      </div>
+
+      <!-- Donate Section -->
+      <div id="donate-section" class="tab-content hidden">
+        <!-- Donation Content -->
+        <h2 class="text-3xl font-bold mb-4">Donate</h2>
+        <div
+          class="bg-white rounded shadow p-6 flex flex-col items-center justify-center min-h-screen"
+        >
+          <p class="text-sm">Support me and the extension by donating ❤️</p>
+          <p class="text-sm">It isn't required but greatly appreciated.</p>
+          <!-- Donation button -->
+          <div class="flex justify-center mt-4">
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=BRFW2WEZ5X22C"
+              class="bg-blue-500 text-white text-lg px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+              Donate via PayPal
+            </a>
+            <!-- Add more donation buttons if needed -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Changelog Section -->
+      <div id="changelog-section" class="tab-content hidden">
+        <!-- Changelog Content -->
+        <h2 class="text-3xl font-bold mb-4">Changelog</h2>
+        <div class="bg-white rounded shadow p-6 changelog-container">
+          <!-- Version 1.1 -->
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">Version 1.1</h3>
+            <p class="text-sm">
+              - Fixed bugs related to extension opening on other sites <br />
+              - Added keyboard shortcuts customization (only toolbar toggle as of this update) <br />
+              - Updated user interface for better accessibility
+            </p>
+          </div>
+          <!-- Version 1.0.1 -->
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">Version 1.0.1</h3>
+            <p class="text-sm">
+              - Fixed bugs related to video playback <br />
+              - Updated user interface for better accessibility <br />
+              - Integrated donation option
+            </p>
+          </div>
+          <!-- Version 1.0.0 -->
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">Version 1.0.0</h3>
+            <p class="text-sm">
+              - Initial release with core features <br />
+              
+            </p>
+          </div>
+          
+        </div>
+      </div>
     </div>
-
     <script src="options.js"></script>
-</body>
-
+  </body>
 </html>

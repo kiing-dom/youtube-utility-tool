@@ -5,8 +5,12 @@
   "description": "Take your YouTube experience to the next level with THE YouTube utility tool.",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "commands" 
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -35,5 +39,13 @@
   ],
   "options_ui": {
     "page": "options.html"
+  },
+  "commands": {
+    "toggleToolbar": {
+      "suggested_key": {
+        "default": "Alt+Shift+Y" 
+      },
+      "description": "Toggle the toolbar"
+    }
   }
 }

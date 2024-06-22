@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "YouTility",
-  "version": "1.0",
-  "description": "YouTube Utility (YouTility) Tool, to enhance your experience on the site.",
+  "name": "YouTility for YouTube™",
+  "version": "1.01",
+  "description": "Take your YouTube experience to the next level with THE YouTube utility tool.",
   "permissions": [
     "activeTab",
     "scripting"
   ],
   "action": {
     "default_popup": "popup.html",
-    "default-icon": {
+    "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
@@ -22,7 +22,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/*"],
+      "matches": ["*://www.youtube.com/watch*"],
       "js": ["content.js"],
       "css": ["toolbar.css"]
     }

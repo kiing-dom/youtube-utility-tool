@@ -8,6 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">   
     <!-- Import Montserrat font with desired weights -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
@@ -178,13 +179,23 @@
           <p class="text-sm">Support me and the extension by donating ❤️</p>
           <p class="text-sm">It isn't required but greatly appreciated.</p>
           <!-- Donation button -->
-          <div class="flex justify-center mt-4">
+          <div class="flex-col justify-center mt-4">
             <a
               href="https://www.paypal.com/donate/?hosted_button_id=BRFW2WEZ5X22C"
               class="bg-blue-500 text-white text-lg px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300"
             >
-              Donate via PayPal
+              Donate via PayPal <i class="fa-brands fa-paypal"></i>
             </a>
+            <div class="flex justify-center items-center mt-4">
+              <a href="https://ko-fi.com/T6T4ZSSGW" target="_blank"
+                ><img
+                  height="72"
+                  style="border: 0px; height: 48px"
+                  src="https://storage.ko-fi.com/cdn/kofi2.png?v=3"
+                  border="0"
+                  alt="Buy Me a Coffee at ko-fi.com"
+              /></a>
+            </div>
             <!-- Add more donation buttons if needed -->
           </div>
         </div>
@@ -195,12 +206,20 @@
         <!-- Changelog Content -->
         <h2 class="text-3xl font-bold mb-4">Changelog</h2>
         <div class="bg-white rounded shadow p-6 changelog-container">
+          <div class="mb-4">
+            <h3 class="font-semibold text-2xl mb-2">Version 1.1.1</h3>
+            <p class="text-sm">
+              - Removed the extension pop up (was redundant with the introduction of hotkeys) <br />
+              - Added Ko-fi link to support me 🥹 <br />
+            </p>
+          </div>
           <!-- Version 1.1 -->
           <div class="mb-4">
             <h3 class="font-semibold text-2xl mb-2">Version 1.1</h3>
             <p class="text-sm">
               - Fixed bugs related to extension opening on other sites <br />
-              - Added keyboard shortcuts customization (only toolbar toggle as of this update) <br />
+              - Added keyboard shortcuts customization (only toolbar toggle as
+              of this update) <br />
               - Updated user interface for better accessibility
             </p>
           </div>
@@ -216,12 +235,8 @@
           <!-- Version 1.0.0 -->
           <div class="mb-4">
             <h3 class="font-semibold text-2xl mb-2">Version 1.0.0</h3>
-            <p class="text-sm">
-              - Initial release with core features <br />
-              
-            </p>
+            <p class="text-sm">- Initial release with core features <br /></p>
           </div>
-          
         </div>
       </div>
     </div>

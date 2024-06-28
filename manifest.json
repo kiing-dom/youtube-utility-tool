@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTility for YouTube™",
-  "version": "1.01",
+  "version": "1.10",
   "description": "Take your YouTube experience to the next level with THE YouTube utility tool.",
   "permissions": [
     "activeTab",
@@ -12,7 +12,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_title": "Open YouTility Options",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

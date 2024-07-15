@@ -27,6 +27,7 @@ function addToolbarListeners() {
     document.getElementById('decrease-speed-btn').addEventListener('click', decreaseSpeed);
     document.getElementById('reset-speed-btn').addEventListener('click', resetSpeed);
     document.getElementById('increase-speed-btn').addEventListener('click', increaseSpeed);
+    document.getElementById('picture-in-picture-btn').addEventListener('click', togglePictureInPicture);
 
     // Add event listeners to the speed buttons
     const speedButtons = document.querySelectorAll('.speed-btn');
@@ -213,6 +214,23 @@ function updateSpeedTooltip(speed) {
         setTimeout(() => {
             speedDisplay.remove();
         }, 1000);
+    }
+}
+
+async function togglePictureInPicture() {
+    const video = document.querySelector('video');
+    if(video) {
+        if(document.pictureInPictureElement) {
+            await document.exitPictureInPicture();
+        } else {
+            try {
+                await video.requestPictureInPicture();
+            } catch (error) {
+                console.error('Couldnt enter PiP:', error);
+            }
+        }
+    } else {
+        console.error('No video found');
     }
 }
 

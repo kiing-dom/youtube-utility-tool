@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "YouTility for YouTube™",
-  "version": "1.11",
-  "description": "Take your YouTube experience to the next level with THE YouTube utility tool.",
+  "version": "1.12",
+  "description": "Elevate Your YouTube Experience: More Tools, More Control, More Fun!",
   "permissions": [
     "activeTab",
-    "scripting",
     "commands" 
   ],
   "background": {

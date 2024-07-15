@@ -69,17 +69,6 @@ function waitForPlayer() {
   }
 }
 
-waitForPlayer();
-
-
-// Toggle the visibility of the toolbar
-function toggleToolbar() {
-    const toolbar = document.getElementById('youtube-enhancer-toolbar');
-    if (toolbar) {
-        toolbar.classList.toggle('hidden');
-    }
-}
-
 // Toggle the visibility of the volume boost slider
 function toggleVolumeSlider() {
     const sliderContainer = document.getElementById('volume-boost-container');
@@ -96,9 +85,12 @@ function adjustVolumeBoost() {
         if (!audioContext) {
             setupAudioContext(video);
         }
-        const maxBoost = 2.0; // Max boost is 200%
+        const maxBoost = 5.0; // Max boost is 500%
         const boost = (slider.value - 100) / 100 * maxBoost + 1;
         gainNode.gain.value = boost;
+
+        console.log(`Slider value: ${slider.value}`);
+        console.log(`Gain value: ${gainNode.gain.value}`);
     }
 }
 
@@ -221,20 +213,6 @@ function updateSpeedTooltip(speed) {
         setTimeout(() => {
             speedDisplay.remove();
         }, 1000);
-    }
-}
-
-// Wait for the YouTube player to be ready before adding the toolbar
-function waitForPlayer() {
-    console.log('Waiting for player...');
-    let player = document.querySelector('.html5-video-player');
-    if (player) {
-        console.log('Player found:', player);
-        injectMaterialIcons(); // Inject Material Icons CSS
-        injectToolbar(); // Inject the custom toolbar
-    } else {
-        console.error('Player not found');
-        setTimeout(waitForPlayer, 2000); // Increase delay between checks
     }
 }
 

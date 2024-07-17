@@ -45,6 +45,18 @@
         "default": "Alt+Shift+Y" 
       },
       "description": "Toggle the toolbar"
+    },
+    "togglePictureInPicture": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Toggle Picture in Picture (PiP)"
+    },
+    "takeScreenshot": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Take a screenshot"
     }
   }
 }

@@ -40,10 +40,16 @@ function addToolbarListeners() {
     });
 }
 
-// Handle message from background script
+// Handle message from background script (keyboard shortcuts)
 chrome.runtime.onMessage.addListener((message) => {
   if (message.command === 'toggleToolbar') {
       toggleToolbar();
+      
+  } else if(message.command === 'togglePictureInPicture') {
+    togglePictureInPicture();
+
+  } else if(message.command === 'takeScreenshot') {
+    captureScreenshot();
   }
 });
 

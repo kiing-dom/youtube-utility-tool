@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTility for YouTube™",
-  "version": "1.13",
+  "version": "1.14",
   "description": "Elevate Your YouTube Experience: More Tools, More Control, More Fun!",
   "permissions": [
     "activeTab",

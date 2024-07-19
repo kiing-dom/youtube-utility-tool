@@ -40,27 +40,40 @@ function addToolbarListeners() {
     });
 }
 
-// Handle message from background script (keyboard shortcuts)
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.command === 'toggleToolbar') {
-      toggleToolbar();
-      
-  } else if(message.command === 'togglePictureInPicture') {
-    togglePictureInPicture();
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    console.log('Message received in content script:', message);
 
-  } else if(message.command === 'takeScreenshot') {
-    captureScreenshot();
-  }
+    if (message.command === 'toggleToolbar') {
+        console.log('Executing toggleToolbar function');
+        toggleToolbar();
+        sendResponse({ status: 'toolbar toggled' });
+    } else if (message.command === 'togglePictureInPicture') {
+        console.log('Executing togglePictureInPicture function');
+        togglePictureInPicture().then(() => {
+            sendResponse({ status: 'picture-in-picture toggled' });
+        });
+    } else if (message.command === 'takeScreenshot') {
+        console.log('Executing captureScreenshot function');
+        captureScreenshot();
+        sendResponse({ status: 'screenshot taken' });
+    }
+
+    // Return true to indicate you want to send a response asynchronously
+    return true;
 });
 
-// Rest of your content script logic
-
 function toggleToolbar() {
-  const toolbar = document.getElementById('youtube-enhancer-toolbar');
-  if (toolbar) {
-      toolbar.classList.toggle('hidden');
-  }
+    const toolbar = document.getElementById('youtube-enhancer-toolbar');
+    console.log('Toggling toolbar:', toolbar);
+    if (toolbar) {
+        toolbar.classList.toggle('hidden');
+        console.log('Toolbar toggled');
+    } else {
+        console.error('Toolbar element not found');
+    }
 }
+
+waitForPlayer();
 
 // Wait for the YouTube player to be ready before adding the toolbar
 function waitForPlayer() {

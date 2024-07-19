@@ -5,7 +5,10 @@
   "description": "Elevate Your YouTube Experience: More Tools, More Control, More Fun!",
   "permissions": [
     "activeTab",
-    "commands" 
+    "commands",
+    "scripting",
+    "webNavigation",
+    "tabs" 
   ],
   "background": {
     "service_worker": "background.js"
@@ -25,9 +28,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/watch*"],
+      "matches": ["*://www.youtube.com/*"],
       "js": ["content.js"],
-      "css": ["toolbar.css"]
+      "css": ["toolbar.css"],
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
